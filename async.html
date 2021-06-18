@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>async.js</title>
+</head>
+
+<body>
+
+</body>
+<script>
+    var stocks = {
+        fruits: ["banana", "strawberry", "grapes", "cherry"],
+        liquid: ["water", "ice"],
+        holder: ["cone", "cup", "stick"],
+        toppings: ["chocolate", "peanuts"],
+    };
+
+    let order = (x, production) => {
+        setTimeout(function () {
+            console.log(stocks.fruits[x] + " was selected");
+        }, 2000);
+        production();
+    }
+
+
+    let production = () => {
+        setTimeout(function () {
+            console.log("production started");
+            setTimeout(() => {
+                console.log("the fruits has been choped");
+                setTimeout(() => {
+                    console.log(`${stocks.liquid[0]} and ${stocks.liquid[1]} has been added`);
+                    setTimeout(() => {
+                        console.log("start the machine");
+                        setTimeout(() => {
+                            console.log(`ice creame placed on a ${stocks.holder[1]}`);
+                            setTimeout(() => {
+                                console.log(`taken ${stocks.toppings[1]} as a topping`);
+                                setTimeout(() => {
+                                    console.log(`serve the ice cream`);
+                                }, 2000);
+                            }, 3000);
+                        }, 2000);
+                    }, 1000);
+                }, 1000);
+            }, 2000);
+        }, 0000);
+
+
+
+    }
+
+    order(0, production);
+
+</script>
+
+</html>

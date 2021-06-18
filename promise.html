@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Promise</title>
+</head>
+
+<body>
+
+</body>
+<script>
+    var stocks = {
+        fruits: ["banana", "strawberry", "grapes", "cherry"],
+        liquid: ["water", "ice"],
+        holder: ["cone", "cup", "stick"],
+        toppings: ["chocolate", "peanuts"],
+    };
+    isshopOpen = true;
+    let order = (time) => {
+
+        return new Promise((resolve, reject) => {
+            if (isshopOpen == true) {
+                setTimeout(() => {
+                    resolve()
+                }, time);
+            }
+            else {
+                reject(console.log("The Shop is Closed."));
+            }
+        })
+    }
+
+    order()
+        .then(() => {
+            return order(1000, console.log(`${stocks.fruits[0]} was selected`))
+        })
+        .then(() => {
+            return order(0000, console.log("priduction is started"))
+        })
+        .then(() => {
+            return order(2000, console.log("fruit is chopped"))
+        })
+        .then(() => {
+            return order(1000, console.log("ice and water added"))
+        })
+        .then(() => {
+            return order(1000, console.log("the machine has started"))
+        })
+        .then(() => {
+            return order(2000, console.log(`${stocks.holder[1]} is taken as a holder`))
+        })
+        .then(() => {
+            return order(3000, console.log("cherry given as topping"))
+        })
+        .then(() => {
+            return order(2000, console.log("ice cream served"))
+        })
+        .catch(() => {
+            console.log("customer left")
+        })
+        .finally(() => {
+            console.log("end of the day")
+        })
+</script>
+
+</html>

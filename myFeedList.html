@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>myFeedList</title>
+</head>
+
+<body>
+    <div id='fname_'></div>
+</body>
+<script>
+    function getData() {
+        url = "https://codelogicx.thecaliforniaapp.com/api/web/feed/list";
+        fetch(url).then((response) => {
+            return response.json();
+        }).then((object) => {
+            // for (let i = 0; i < object.data.feed_list.length; i++) {
+            //     console.log(object.data.feed_list[i]);
+            // }
+            // object.data.feed_list.forEach(element => {
+            //     console.log(element.user.first_name);
+            //     document.getElementById("fname_").innerHTML = `Name = ${element.user.first_name}`;
+            //     document.getElementById("sname_").innerHTML = `Last Name = ${element.user.last_name}`;
+            //     document.getElementById("fullname_").innerHTML = `Full Name = ${element.user.full_name}`;
+            //     document.getElementById("email_").innerHTML = `Email = ${element.user.email}`;
+            //     document.getElementById("phone_").innerHTML = `Phone Number = ${element.user.phone_number}`;
+            //     document.getElementById("gender_").innerHTML = `Gender = ${element.user.gender}`;
+
+            //     url = document.getElementById("image1_").innerHTML = `${element.user.display_image}`;
+            // });
+            object.data.feed_list.forEach((element) => {
+                //console.log(element.user.first_name);
+                const fname = document.createElement('p');
+                const phone = document.createElement('p');
+                const email = document.createElement('p');
+                const gender = document.createElement('p');
+                const imagepath = document.createElement('img');
+                fname.textContent = `Name: ${element.user.first_name} ${element.user.last_name}`;
+                phone.textContent = `phone number: ${element.user.phone_number}`;
+                email.textContent = `email:  ${element.user.email}`;
+                gender.textContent = `gender:  ${element.user.gender}`;
+                imagepath.textContent = `${element.user.display_image}`;
+                imagepath.setAttribute('src', imagepath.textContent);
+                document.getElementById('fname_').append(fname);
+                document.getElementById('fname_').append(phone);
+                document.getElementById('fname_').append(email);
+                document.getElementById('fname_').append(gender);
+                document.getElementById('fname_').append(imagepath);
+
+
+            })
+        })
+    };
+
+
+    getData();
+</script>
+
+</html>

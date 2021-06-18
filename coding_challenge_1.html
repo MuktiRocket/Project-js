@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>coding challenge 1</title>
+</head>
+
+<body>
+
+</body>
+<script>
+    const whereami = function (lat, lng) {
+        fetch(`'https://geocode.xyz/${lat},${lng}?geoit=json'`).then(res => res.json()).then(data => console, log(data));
+    };
+    whereami(52.508, 13.381);
+</script>
+
+</html>

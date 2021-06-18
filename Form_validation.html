@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <script>
+        function validation() {
+            var fn = document.getElementById("fn").value;
+            var ln = document.getElementById("ln").value;
+            var address = document.getElementById("address").value;
+            var age = document.getElementById("age").value;
+            var phone = document.getElementById("phone").value;
+
+
+
+
+            if (fn == "") {
+                document.getElementById("one").innerHTML = "** first name is reqiured";
+                return false;
+            }
+            else if (fn.length <= 2 || fn.length >= 20) {
+                document.getElementById("one").innerHTML = "** first name should be between 2 and 20 characters";
+                return false;
+            }
+            else if (!isNaN(fn)) {
+                document.getElementById("one").innerHTML = " ** first name cannot have a nnumber";
+                return false;
+            }
+            else {
+                document.getElementById("one").innerHTML = "";
+            }
+
+
+
+
+            if (ln == "") {
+                document.getElementById("two").innerHTML = " **last name is reqiured";
+                return false;
+            }
+            else if (ln.length <= 2 || ln.length >= 20) {
+                document.getElementById("two").innerHTML = " **last name should be between 2 to 20 charaters";
+                return false;
+            }
+            else if (!isNaN(ln)) {
+                document.getElementById("two").innerHTML = " ** last name cannot have a number";
+                return false;
+            }
+            else {
+                document.getElementById("two").innerHTML = "";
+            }
+
+
+
+            if (address == "") {
+                document.getElementById("three").innerHTML = " **address cannot be empty";
+                return false;
+            }
+            else if (address.length <= 8 || address >= 60) {
+                document.getElementById("three").innerHTML = " **address should be between 8 to 60 charactes";
+                return false;
+            }
+            else {
+                document.getElementById("three").innerHTML = "";
+            }
+
+
+
+            if (age == "") {
+                document.getElementById("four").innerHTML = " **age is required";
+                return false;
+            }
+            else if (isNaN(age)) {
+                document.getElementById("four").innerHTML = " **age should be a number";
+                return false;
+            }
+            else if (age < 10 || age >= 62) {
+                document.getElementById("four").innerHTML = " **age not eligible";
+                return false;
+            }
+            else {
+                document.getElementById("four").innerHTML = "";
+            }
+
+
+
+            if (phone == "") {
+                document.getElementById("five").innerHTML = " **phone is required";
+                return false;
+            }
+            else if (phone.length != 10) {
+                document.getElementById("five").innerHTML = " **phone number should be of 10 digits";
+                return false;
+            }
+            else {
+                document.getElementById("five").innerHTML = "";
+            }
+
+            return true;
+
+
+        }
+
+    </script>
+    <style>
+        div {
+            box-sizing: border-box;
+            width: 100%;
+            border: 100px solid black;
+            float: left;
+            align-content: center;
+            align-items: center;
+        }
+
+        form {
+            margin: 0 auto;
+            width: 600px;
+        }
+    </style>
+    <title>MyFormValidation</title>
+</head>
+
+<body style="background-color: aquamarine;">
+
+    <body>
+        <h1 style="text-align: center;">REGISTRATION FORM</h1>
+        <form name="RegForm" id="form" onsubmit=" return validation()" method="POST">
+            <b>
+                <p>First Name: <br> <input type="text" size="65" placeholder="First Name" id="fn" /></p>
+            </b>
+            <span id="one"></span>
+            <br />
+            <b>
+                <p>Last Name: <br> <input type="text" size="65" placeholder=" Last Name" id="ln" /></p>
+            </b>
+            <span id="two"></span>
+            <br />
+            <b>
+                <p>Address: <br> <input type="text" size="65" placeholder="Address" id="address" /></p>
+            </b>
+            <span id="three"></span>
+            <br />
+            <b>
+                <p>Age: <br> <input type="number" size="65" placeholder="Age" id="age" /></p>
+            </b>
+            <span id="four"></span>
+            <br />
+            <b>
+                <p>Phone: <br> <input type="number" size="65" name="Phone" placeholder="Phone" id="phone" /></p>
+            </b>
+            <span id="five"></span>
+            <br />
+            <br />
+            <p>
+                <input style="background: rgb(161, 163, 163);" type="submit" value="send" />
+                <input style="background: red;" type="reset" value="Reset" name="Reset" />
+            </p>
+        </form>
+    </body>
+</body>
+
+</html>
